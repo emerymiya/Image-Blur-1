@@ -6,14 +6,14 @@ class Image
   end
 
   
-def output_image
- array.each do |item|
-  item.each do |cell|
-    print cell
+  def output_image
+    array.each do |row|
+      row.each do |cell|
+        print cell
+      end
+      puts "\n"
+    end
   end
-  puts "\n"
-end
-end
 end
 
   image = Image.new([
