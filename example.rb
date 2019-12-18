@@ -23,10 +23,10 @@ class Image
           ones.each do |one_r, one_c|
 
             if r == one_r && c == one_c
-              @array[r -1][c] = 1 unless r == 0
-              @array[r +1][c] = 1 unless r >= 3 
-              @array[r][c -1] = 1 unless c == 0 
-              @array[r][c +1] = 1 unless c >= 3 
+              @array[r -1][c] = 1 unless r == 0 #up
+              @array[r +1][c] = 1 unless r >= 3 #down
+              @array[r][c -1] = 1 unless c == 0 #left
+              @array[r][c +1] = 1 unless c >= 3 #right
             end
           end
         end
@@ -50,5 +50,3 @@ image = Image.new([
 
 image.blur!
 image.output_image
-
-
