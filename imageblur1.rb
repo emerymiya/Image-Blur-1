@@ -16,7 +16,7 @@ class Image
     ones
   end
 
-  def blur!
+  def distance!
     ones = get_ones
       @array.each_with_index do |row, r|
         row.each_with_index do |value, c|
@@ -27,6 +27,10 @@ class Image
               @array[r +1][c] = 1 unless r >= 3 
               @array[r][c -1] = 1 unless c == 0 
               @array[r][c +1] = 1 unless c >= 3 
+              @array[r -2][c] = 1 unless r <= 1
+              @array[r +2][c] = 1 unless r >= 2
+              @array[r][c -2] = 1 unless c <= 1
+              @array[r][c +2] = 1 unless c >= 2
             end
           end
         end
@@ -48,7 +52,7 @@ image = Image.new([
 ])
 
 
-image.blur!
+image.distance!
 image.output_image
 
 
